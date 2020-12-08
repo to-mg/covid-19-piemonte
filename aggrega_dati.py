@@ -120,9 +120,9 @@ def carica_asl():
     colonne = ['CODICE AZIENDA', 'DENOMINAZIONE AZIENDA', 'CODICE COMUNE']
     ifile = Path("data") / ("asl_piemonte.csv")
     asl = pd.read_csv(ifile, sep=";",
-                      dtype={"CODICE COMUNE": "string",
-                             "CODICE AZIENDA": "string",
-                             "DENOMINAZIONE AZIENDA": "string"},
+                      dtype={"CODICE COMUNE": "str",
+                             "CODICE AZIENDA": "str",
+                             "DENOMINAZIONE AZIENDA": "str"},
                       usecols=colonne)
     return asl
 
@@ -159,8 +159,8 @@ def carica_dati_da_regione_piemonte():
     ifiles = sorted(Path('data').glob("dati*_da_regione_piemonte.csv"))
     # read all the files into a dataframe array
     dfall = pd.concat((pd.read_csv(ifile, sep=";",
-                                   dtype={"Comune": "string",
-                                          "Codice ISTAT": "string",
+                                   dtype={"Comune": "str",
+                                          "Codice ISTAT": "str",
                                           "Abitanti": "int64",
                                           "Positivi": "int64",
                                           "Rapporto": "float64",
