@@ -119,12 +119,11 @@ def carica_asl():
     """
     colonne = ['CODICE AZIENDA', 'DENOMINAZIONE AZIENDA', 'CODICE COMUNE']
     ifile = Path("data") / ("asl_piemonte.csv")
-    asl = pd.read_csv(ifile, sep=";",
+    return pd.read_csv(ifile, sep=";",
                       dtype={"CODICE COMUNE": "str",
                              "CODICE AZIENDA": "str",
                              "DENOMINAZIONE AZIENDA": "str"},
                       usecols=colonne)
-    return asl
 
 
 def aggiungi_delta_positivi(dfall, prima_data):
